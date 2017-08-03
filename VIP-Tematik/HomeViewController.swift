@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setAllComponentSettings()
     }
-    // deneme
+    // denemewqeqw
     func setAllComponentSettings(){
         //view settings
         self.view.backgroundColor = UIColor.white
