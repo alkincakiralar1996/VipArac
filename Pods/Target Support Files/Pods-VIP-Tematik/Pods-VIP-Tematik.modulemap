@@ -1,0 +1,6 @@
+framework module Pods_VIP_Tematik {
+  umbrella header "Pods-VIP-Tematik-umbrella.h"
+
+  export *
+  module * { export * }
+}
