@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let startPage = HomeViewController()
+        let startPage = LoginViewController()
         window?.rootViewController = startPage
         return true
     }
