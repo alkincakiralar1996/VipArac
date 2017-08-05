@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import EFInternetIndicator
 
-class LoginViewController: UIViewController,UITextFieldDelegate {
+class LoginViewController: UIViewController,UITextFieldDelegate,InternetStatusIndicable,URLSessionDownloadDelegate {
     
     let userModel : User = User()
     let userFuncs : UserFuncs = UserFuncs()
+    var internetConnectionIndicator:InternetViewIndicator?
+    var urlLink: URL!
+    var defaultSession: URLSession!
+    var downloadTask: URLSessionDownloadTask!
     
     let topView : UIView = {
        let view = UIView()
@@ -88,20 +93,56 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         return btn
     }()
     
-    let spinner : UIActivityIndicatorView = {
-       let spn = UIActivityIndicatorView()
-        spn.translatesAutoresizingMaskIntoConstraints = false
-        spn.isHidden = true
-        spn.activityIndicatorViewStyle = .gray
-        spn.transform = CGAffineTransform(scaleX: 2, y: 2)
-        return spn
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setAllComponentSettings()
         startSettings()
+        let backgroundSessionConfiguration = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
+        defaultSession = Foundation.URLSession(configuration: backgroundSessionConfiguration, delegate: self, delegateQueue: OperationQueue.main)
     }
+    
+    func startDownloading () {
+        let url = URL(string: "http://tematik.net/VIP/alitest.gui.zip")!
+        downloadTask = defaultSession.downloadTask(with: url)
+        downloadTask.resume()
+    }
+    
+    // MARK:- URLSessionDownloadDelegate
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("File download succesfully")
+        
+        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentDirectoryPath:String = path[0]
+        let fileManager = FileManager()
+        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/deneme.gui.zip"))
+        
+        if fileManager.fileExists(atPath: destinationURLForFile.path){
+            do{
+                try fileManager.removeItem(atPath: destinationURLForFile.path)
+                try fileManager.moveItem(at: location, to: destinationURLForFile)
+            }catch{
+                print("error")
+            }
+        }
+        else{
+            do {
+                try fileManager.moveItem(at: location, to: destinationURLForFile)
+            }catch{
+                print("An error occurred while moving file to destination url")
+            }
+        }
+    }
+    
+    /*
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        downloadTask = nil
+        if (error != nil) {
+            print("didCompleteWithError \(error?.localizedDescription ?? "no value")")
+        }
+        else {
+            print("The task finished successfully")
+        }
+    }*/
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true) // herangi bir yere tiklandiginda keyboard kapanacak

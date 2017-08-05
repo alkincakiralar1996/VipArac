@@ -11,6 +11,10 @@ import UIKit
 extension LoginViewController{
     
     func handleLicenceConfirm(){
+        
+        startDownloading()
+        
+        /*
         guard let licenceNo : String = licenceNumberTextField.text,let password : String = passwordNumberTextField.text else{
             print("girilen degeler uygun degil")
             spinner.isHidden = true
@@ -37,6 +41,7 @@ extension LoginViewController{
                 passHomePage()
             }
         }
+ */
     }
     
     func passHomePage(){
@@ -53,6 +58,7 @@ extension LoginViewController{
         licenceNumberTextField.becomeFirstResponder() // lisans textini uygulama acildiginda focuslancak halde ayarladik
         passwordNumberTextField.delegate = self
         licenceNumberTextField.delegate = self
+        self.startMonitoringInternet()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -117,12 +123,6 @@ extension LoginViewController{
         systemReadyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         systemReadyButton.widthAnchor.constraint(equalTo:view.widthAnchor,constant:-20).isActive = true
         systemReadyButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        //SPINNER SETTINGS
-        view.addSubview(spinner)
-        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
     }
     
 }

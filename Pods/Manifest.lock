@@ -1,12 +1,25 @@
 PODS:
   - AEXML (4.1.0)
+  - EFInternetIndicator (0.2.0):
+    - EFInternetIndicator/Interface (= 0.2.0)
+    - EFInternetIndicator/Network (= 0.2.0)
+  - EFInternetIndicator/Interface (0.2.0):
+    - SwiftMessages
+  - EFInternetIndicator/Network (0.2.0):
+    - ReachabilitySwift
+  - ReachabilitySwift (3)
+  - SwiftMessages (3.3.4)
 
 DEPENDENCIES:
   - AEXML
+  - EFInternetIndicator
 
 SPEC CHECKSUMS:
   AEXML: 647fbb051280f3fb38a1a7caa62b0344055a851c
+  EFInternetIndicator: 76219397add7b5f2388869fa4d9305d0c6af51e1
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SwiftMessages: 1172842c4d4af818704f90c50ec8dc597e55c9af
 
-PODFILE CHECKSUM: 295c11b107bcbc4994d3708fd59362d9bae10fe0
+PODFILE CHECKSUM: 59ec7a24f76690f8567ee2d7f1ae2990de8171b4
 
 COCOAPODS: 1.2.1
