@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>VIP</project>
+    <designer>
+    </designer>
+    <size autoposition="scale">
+      <portrait width="800" height="1280" />
+      <landscape width="1280" height="800" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+    <devices>
+      <device name="1">1</device>
+    </devices>
+  </properties>
+  <systems>
+    <system name="BAGLANTI" protocol="tcp" accept="0" ip="192.168.1.1" port="5000" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <cmd name="Motor2-İleri">[0000,00,13,001,00,01,05,00070]137*</cmd>
+      <cmd name="Motor2-Geri">[0000,00,13,001,00,01,06,00070]188*</cmd>
+      <cmd name="Motor3-İleri">[0000,00,13,001,00,02,05,99999]130*</cmd>
+      <cmd name="Motor3-Geri">[0000,00,13,001,00,02,06,99999]183*</cmd>
+      <cmd name="Motor3-Dur">[0000,00,13,001,00,02,03]056*</cmd>
+      <cmd name="Motor4-Dur">[0000,00,13,001,00,03,03]090*</cmd>
+      <cmd name="Motor4-İleri">[0000,00,13,001,00,03,05,99999]157*</cmd>
+      <cmd name="Motor4-Geri">[0000,00,13,001,00,03,06,99999]168*</cmd>
+      <cmd name="Motor5-Dur">[0000,00,13,001,00,04,03]115*</cmd>
+      <cmd name="Motor6-Dur">[0000,00,13,001,00,05,03]017*</cmd>
+      <cmd name="Motor5-Geri">[0000,00,13,001,00,04,06,00020]031*</cmd>
+      <cmd name="Motor5-İleri">[0000,00,13,001,00,04,05,00020]042*</cmd>
+      <cmd name="Motor6-İleri">[0000,00,13,001,00,05,05,00020]053*</cmd>
+      <cmd name="Motor6-Geri">[0000,00,13,001,00,05,06,99999]234*</cmd>
+      <cmd name="Role13-Timer">[0000,13,06,13,020]042*</cmd>
+      <cmd name="Role1-Toogle">[0000,12,03,01]099*</cmd>
+      <cmd name="Role2-Toogle">[0000,12,03,02]092*</cmd>
+      <cmd name="Role5-Toogle">[0000,12,03,05]055*</cmd>
+      <cmd name="Motor1_İleri">[0000,00,13,001,00,00,06,00070]163*</cmd>
+      <cmd name="Moto1_Geri">[0000,00,13,001,00,00,06,00190]153*</cmd>
+    </system>
+  </systems>
+  <themes>
+    <theme type="background" name=".background"><![CDATA[ background-image: url(bg-2.jpeg); background-repeat: no-repeat;]]></theme>
+    <theme type="button" name=".newtheme_1[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(TV.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_1[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_2[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(masa.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_2[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".arkakoltukileri[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(koltuk.fw.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".arkakoltukileri[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".ileriarka[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(tv_left.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".ileriarka[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".geriarka[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(tv_right.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".geriarka[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".SIRT"><![CDATA[ color: #FFFFFF; font-size: 20px; font-family: 'Arial'; text-align: left; vertical-align: top; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".cekmece[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(d8ac4608817c43e9f7e70b93f8ae114d-multi-story-drawer-cabinet.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".cekmece[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".KAPI[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(door-open-car-128.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".KAPI[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_3[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(elevator-door-logo-icon-47437.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_3[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_4[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(lamp1.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_4[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_5[state='0']"><![CDATA[padding: 0px 0px 0px 0px; background-image: url(logo_ham.png); color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".newtheme_5[state='1']"><![CDATA[padding: 0px 0px 0px 0px; color: #FFFFFF; font-size: 12px; font-family: 'Verdana'; font-weight: normal; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+  </themes>
+  <page name="Startup" folder="" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait />
+    <landscape t="background">
+      <btn j="0" x="591" y="156" w="219" h="170" t="newtheme_1" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor1_İleri" />
+            <press delay="0" hold="0" repeat="0" command="Moto1_Geri" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="958" y="94" w="184" h="156" t="newtheme_2" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor2-İleri" />
+            <press delay="0" hold="0" repeat="0" command="Motor2-Geri" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="134" y="86" w="167" h="159" t="arkakoltukileri" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="302" y="115" w="89" h="86" t="ileriarka" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor3-İleri" />
+            <release delay="0" command="Motor3-Dur" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="410" y="116" w="98" h="83" t="geriarka" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor3-Geri" />
+            <release delay="0" command="Motor3-Dur" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <txt j="0" x="380" y="210" w="45" h="25" t="SIRT" wrap="False" l="0" tags="">SIRT</txt>
+      <btn j="0" x="114" y="249" w="89" h="86" t="ileriarka" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor4-İleri" />
+            <release delay="0" command="Motor4-Dur" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="222" y="250" w="98" h="83" t="geriarka" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor4-Geri" />
+            <press delay="0" hold="0" repeat="0" command="Motor4-Dur" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <txt j="0" x="172" y="343" w="81" h="23" t="SIRT" wrap="False" l="0" tags="">KOLTUK</txt>
+      <btn j="0" x="110" y="485" w="153" h="167" t="cekmece" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor5-İleri" />
+            <press delay="0" hold="0" repeat="0" command="Motor5-Geri" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <txt j="0" x="123" y="654" w="122" h="23" t="SIRT" wrap="False" l="0" tags="">Sol Çekmece</txt>
+      <btn j="0" x="264" y="485" w="153" h="167" t="cekmece" flip="None" sim="0" l="0" s="1" tags="">
+        <actions>
+          <action>
+            <press delay="0" hold="0" repeat="0" command="Motor6-İleri" />
+            <press delay="0" hold="0" repeat="0" command="Motor6-Geri" />
+          </action>
+        </actions>
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <txt j="0" x="277" y="654" w="131" h="23" t="SIRT" wrap="False" l="0" tags="">Sağ Çekmece</txt>
+      <btn j="0" x="988" y="438" w="128" h="128" t="KAPI" flip="None" sim="0" l="0" s="1" tags="" cmd="Role13-Timer">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="985" y="516" w="151" h="168" t="newtheme_3" flip="None" sim="0" l="0" s="1" tags="" cmd="Role13-Timer">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="460" y="384" w="123" h="128" t="newtheme_4" flip="None" sim="0" l="0" s="1" tags="" cmd="Role1-Toogle">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="624" y="386" w="123" h="128" t="newtheme_4" flip="None" sim="0" l="0" s="1" tags="" cmd="Role2-Toogle">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <btn j="0" x="789" y="386" w="123" h="128" t="newtheme_4" flip="None" sim="0" l="0" s="1" tags="" cmd="Role5-Toogle">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+      <txt j="0" x="1040" y="668" w="52" h="25" t="SIRT" wrap="False" l="0" tags="">KAPI</txt>
+      <txt j="0" x="495" y="515" w="60" h="30" t="SIRT" wrap="False" l="0" tags="">LED 1</txt>
+      <txt j="0" x="662" y="517" w="60" h="30" t="SIRT" wrap="False" l="0" tags="">LED 2</txt>
+      <txt j="0" x="826" y="517" w="60" h="30" t="SIRT" wrap="False" l="0" tags="">LED 3</txt>
+      <btn j="0" x="530" y="597" w="289" h="203" t="newtheme_5" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">
+        </inactive>
+        <active s="0">
+        </active>
+      </btn>
+    </landscape>
+  </page>
+</gui>

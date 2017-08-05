@@ -8,8 +8,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController,UITextFieldDelegate {
+    
+    let userModel : User = User()
+    let userFuncs : UserFuncs = UserFuncs()
+    
     let topView : UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false // constraint kodlarini aktif edebilmemiz icin false yapmamiz gerek
@@ -38,7 +41,7 @@ class LoginViewController: UIViewController {
     let licenceNumberTextField : UITextField = {
        let txt = UITextField()
         txt.backgroundColor = UIColor.white
-        txt.font = UIFont.systemFont(ofSize: 18)
+        txt.font = UIFont.systemFont(ofSize: 22)
         txt.translatesAutoresizingMaskIntoConstraints = false
         return txt
     }()
@@ -46,7 +49,7 @@ class LoginViewController: UIViewController {
     let passwordNumberLabel : UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Lisans No :"
+        lbl.text = "Sifre :"
         lbl.textColor = UIColor.gray
         lbl.font = UIFont.systemFont(ofSize: 20, weight: 15)
         return lbl
@@ -55,14 +58,49 @@ class LoginViewController: UIViewController {
     let passwordNumberTextField : UITextField = {
         let txt = UITextField()
         txt.backgroundColor = UIColor.white
-        txt.font = UIFont.systemFont(ofSize: 18)
+        txt.font = UIFont.systemFont(ofSize: 22)
         txt.translatesAutoresizingMaskIntoConstraints = false
+        txt.isSecureTextEntry = true
         return txt
+    }()
+    
+    
+    
+    let licenceConfirmButton : UIButton = {
+       let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Lisans No Onayla", for: .normal)
+        btn.backgroundColor = UIColor.gray
+        btn.tintColor = UIColor.black
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        btn.addTarget(self, action: #selector(handleLicenceConfirm), for: .touchUpInside)
+        return btn
+    }()
+    
+    let systemReadyButton : UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Sistemi Hazirla", for: .normal)
+        btn.backgroundColor = UIColor.gray
+        btn.tintColor = UIColor.black
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        btn.addTarget(self, action: #selector(handleSystemConfirm), for: .touchUpInside)
+        return btn
+    }()
+    
+    let spinner : UIActivityIndicatorView = {
+       let spn = UIActivityIndicatorView()
+        spn.translatesAutoresizingMaskIntoConstraints = false
+        spn.isHidden = true
+        spn.activityIndicatorViewStyle = .gray
+        spn.transform = CGAffineTransform(scaleX: 2, y: 2)
+        return spn
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setAllComponentSettings()
+        startSettings()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,34 +115,7 @@ class LoginViewController: UIViewController {
         return .lightContent // arka plan beyaz oldugu icin status barin renklendirmesini beyazlastirmamis gerekti
     }
     
-    func setAllComponentSettings(){
-        //VIEW SETTINGS
-        self.view.backgroundColor = UIColor.black
-        
-        //TOP VIEW SETTINGS
-        view.addSubview(topView) // sayfaya componenti eklemek istedigimiz zaman bu metodla ekliyoruz
-        self.topView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true // top view'imizi status barin hemen altina sabitledik
-        topView.widthAnchor.constraint(equalTo:view.widthAnchor).isActive = true // genisligini sayfanin genisligine esitledik
-        topView.heightAnchor.constraint(equalToConstant: 23).isActive = true // yuksekliginin kac px olcagini belirttik
-        
-        //TOP VIEW LABEL SETTINGS
-        topView.addSubview(topViewLabel) // label olusturdugumuz top view componentinin icinde olacagi icin view'a degil topview componentinin icine ekledik
-        topViewLabel.leftAnchor.constraint(equalTo: topView.leftAnchor,constant:5).isActive = true // top view'in icinde soldan mesafesini belirledik
-        topViewLabel.centerYAnchor.constraint(equalTo: topView.centerYAnchor).isActive = true // top view'in yuksekligine gore yukardan asagiya ortaladak
-        
-        //LICENCE NUMBER LABEL SETTINGS
-        view.addSubview(licenceNumberLabel)
-        licenceNumberLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5).isActive = true
-        licenceNumberLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 5).isActive = true
-        
-        //LICENCE NUMBER TEXT FIELD SETTINGS
-        view.addSubview(licenceNumberTextField)
-        licenceNumberTextField.leftAnchor.constraint(equalTo: licenceNumberLabel.leftAnchor).isActive = true
-        licenceNumberTextField.topAnchor.constraint(equalTo: licenceNumberLabel.bottomAnchor,constant:5).isActive = true
-        licenceNumberTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5).isActive = true
-        licenceNumberTextField.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        licenceNumberTextField.heightAnchor.constraint(equalToConstant: 35).isActive = true
-    }
+
 
 
 }

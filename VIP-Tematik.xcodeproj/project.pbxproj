@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E10CD3E1F34F6A400B80BA3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10CD3D1F34F6A400B80BA3 /* Extensions.swift */; };
+		0E10CD401F350C9A00B80BA3 /* VIP.xml in Resources */ = {isa = PBXBuildFile; fileRef = 0E10CD3F1F350C9A00B80BA3 /* VIP.xml */; };
+		0E10CD451F350D4000B80BA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10CD441F350D4000B80BA3 /* User.swift */; };
+		0E10CD481F3514DB00B80BA3 /* UserFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10CD471F3514DB00B80BA3 /* UserFuncs.swift */; };
+		0E10CD4E1F3524CA00B80BA3 /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E10CD4D1F3524CA00B80BA3 /* GlobalFuncs.swift */; };
 		0EF36EBB1F3213B800636B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF36EBA1F3213B800636B1B /* AppDelegate.swift */; };
 		0EF36EBD1F3213B800636B1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF36EBC1F3213B800636B1B /* LoginViewController.swift */; };
 		0EF36EC01F3213B800636B1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF36EBE1F3213B800636B1B /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E10CD3D1F34F6A400B80BA3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0E10CD3F1F350C9A00B80BA3 /* VIP.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VIP.xml; sourceTree = "<group>"; };
+		0E10CD441F350D4000B80BA3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E10CD471F3514DB00B80BA3 /* UserFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFuncs.swift; sourceTree = "<group>"; };
+		0E10CD4D1F3524CA00B80BA3 /* GlobalFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
 		0EF36EB71F3213B800636B1B /* VIP-Tematik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VIP-Tematik.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF36EBA1F3213B800636B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EF36EBC1F3213B800636B1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +56,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E10CD431F350D2E00B80BA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E10CD441F350D4000B80BA3 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0E10CD491F35187D00B80BA3 /* Model Functions */ = {
+			isa = PBXGroup;
+			children = (
+				0E10CD471F3514DB00B80BA3 /* UserFuncs.swift */,
+				0E10CD4D1F3524CA00B80BA3 /* GlobalFuncs.swift */,
+			);
+			name = "Model Functions";
+			sourceTree = "<group>";
+		};
 		0EF36EAE1F3213B800636B1B = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +96,8 @@
 			children = (
 				0EF36EBA1F3213B800636B1B /* AppDelegate.swift */,
 				0EF36EC11F3213B800636B1B /* Assets.xcassets */,
+				0E10CD431F350D2E00B80BA3 /* Models */,
+				0E10CD491F35187D00B80BA3 /* Model Functions */,
 				0EF36ECF1F3213FD00636B1B /* Views */,
 				0EF36ECE1F3213F200636B1B /* Helpers */,
 				0EF36ECD1F3213ED00636B1B /* Controllers */,
@@ -81,6 +110,7 @@
 		0EF36ECC1F3213E300636B1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E10CD3F1F350C9A00B80BA3 /* VIP.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -97,6 +127,7 @@
 		0EF36ECE1F3213F200636B1B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0E10CD3D1F34F6A400B80BA3 /* Extensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -209,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EF36EC51F3213B800636B1B /* LaunchScreen.storyboard in Resources */,
+				0E10CD401F350C9A00B80BA3 /* VIP.xml in Resources */,
 				0EF36EC21F3213B800636B1B /* Assets.xcassets in Resources */,
 				0EF36EC01F3213B800636B1B /* Main.storyboard in Resources */,
 			);
@@ -269,11 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E10CD481F3514DB00B80BA3 /* UserFuncs.swift in Sources */,
 				0EF36ED71F32176900636B1B /* LoginController+funcs.swift in Sources */,
+				0E10CD3E1F34F6A400B80BA3 /* Extensions.swift in Sources */,
 				0EF36ED51F32156D00636B1B /* HomeControllers+funcs.swift in Sources */,
 				0EF36EBD1F3213B800636B1B /* LoginViewController.swift in Sources */,
 				0EF36EBB1F3213B800636B1B /* AppDelegate.swift in Sources */,
 				0EF36ED31F32156100636B1B /* HomeViewController.swift in Sources */,
+				0E10CD451F350D4000B80BA3 /* User.swift in Sources */,
+				0E10CD4E1F3524CA00B80BA3 /* GlobalFuncs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
