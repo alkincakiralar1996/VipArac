@@ -9,48 +9,65 @@
 import UIKit
 
 extension LoginViewController{
-    
+
     func handleLicenceConfirm(){
-        
-        startDownloading()
-        
-        /*
+        //FORMALITEDEN KAYNAKLI KOD SATIRI GUARD KOYMANIN AMACINI BI TURLU ANLAYAMADIM :D (junior olarak olecegiz buralarda)
         guard let licenceNo : String = licenceNumberTextField.text,let password : String = passwordNumberTextField.text else{
             print("girilen degeler uygun degil")
-            spinner.isHidden = true
             return
         }
         
+        // BOSMU DOLUMU KONTROLU
         let textFieldsArray = [licenceNo,password]
         let errorMessagesArray = ["Lisans numarasi bos gecilemez","Sifre bolumu bos gecilemez"]
-        
-        if let state : Bool = alertControl(texts: textFieldsArray, errorMessages: errorMessagesArray){
-            if !state {
-                return
-            }
-            
-            userModel.licenceNo = licenceNo
-            userModel.password = password
-            
-            if let controlState : Bool = userFuncs.loginControl(user: userModel){
-                if !controlState{
-                    alert(message: "Giris basarisiz.Lutfen bilgilerinizi kontrol edin.")
-                    spinner.isHidden = true
-                    return
-                }
-                passHomePage()
-            }
+        let valueState : Bool = valueControl(texts: textFieldsArray, errorMessages: errorMessagesArray)
+        if !valueState {
+            return
         }
- */
-    }
-    
-    func passHomePage(){
-        let homePage = HomeViewController()
-        present(homePage, animated: true, completion: nil)
+        
+        //XML DOSYASINDAKI LISANS NUMARASI ILE SIFREYLE ESLESIYORMU KONTROLU
+        userModel.licenceNo = licenceNo
+        userModel.password = password
+        let loginControlState : Bool = userFuncs.loginControl(user: userModel)
+        if !loginControlState{
+            alert(message: "Giris basarisiz.Lutfen bilgilerinizi kontrol edin.")
+            return
+        }
+        
+        //HOME PAGE SAYFASINA GECIS
+        passHomePage()
+        
     }
     
     func handleSystemConfirm(){
+        //LISANS NUMARASINI ALDIK
+        guard let licenceNo : String = licenceNumberTextField.text else{
+            alert(message: "Uygun veri girisi yapilamamistir")
+            return
+        }
         
+        //BOSMU DOLUMU KONTROLU
+        let textFieldsArray = [licenceNo]
+        let errorMessagesArray = ["Lisans numarasi girilmeden sistem kurulamaz"]
+        let state : Bool = valueControl(texts: textFieldsArray, errorMessages: errorMessagesArray)
+        if !state{
+            return
+        }
+        
+        //DOSYA INDIRILEMEDIYSE FALSE DONUCEK INDIRILDIYSE TRUE DONCEK
+        let downloadControlState = userFuncs.systemSetup(licenceNo: licenceNo)
+        if !downloadControlState{
+            alert(message: "Sistem kurulamadi")
+            return
+        }
+        
+        //DOSYA INDI VE ZIPTEN ACILDIYSA GIRIS BUTONU AKTIFLESTIRILDI
+        licenceConfirmButton.isEnabled = true
+    }
+    
+    
+    func passHomePage(){
+        passPage(page: HomeViewController())
     }
     
     
@@ -59,6 +76,7 @@ extension LoginViewController{
         passwordNumberTextField.delegate = self
         licenceNumberTextField.delegate = self
         self.startMonitoringInternet()
+        licenceConfirmButton.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

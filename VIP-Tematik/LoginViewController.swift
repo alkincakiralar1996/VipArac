@@ -8,16 +8,14 @@
 
 import UIKit
 import EFInternetIndicator
+import Zip
 
-class LoginViewController: UIViewController,UITextFieldDelegate,InternetStatusIndicable,URLSessionDownloadDelegate {
+class LoginViewController: UIViewController,UITextFieldDelegate,InternetStatusIndicable {
     
     let userModel : User = User()
     let userFuncs : UserFuncs = UserFuncs()
     var internetConnectionIndicator:InternetViewIndicator?
-    var urlLink: URL!
-    var defaultSession: URLSession!
-    var downloadTask: URLSessionDownloadTask!
-    
+
     let topView : UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false // constraint kodlarini aktif edebilmemiz icin false yapmamiz gerek
@@ -97,52 +95,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,InternetStatusIn
         super.viewDidLoad()
         setAllComponentSettings()
         startSettings()
-        let backgroundSessionConfiguration = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
-        defaultSession = Foundation.URLSession(configuration: backgroundSessionConfiguration, delegate: self, delegateQueue: OperationQueue.main)
     }
-    
-    func startDownloading () {
-        let url = URL(string: "http://tematik.net/VIP/alitest.gui.zip")!
-        downloadTask = defaultSession.downloadTask(with: url)
-        downloadTask.resume()
-    }
-    
-    // MARK:- URLSessionDownloadDelegate
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("File download succesfully")
-        
-        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentDirectoryPath:String = path[0]
-        let fileManager = FileManager()
-        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/deneme.gui.zip"))
-        
-        if fileManager.fileExists(atPath: destinationURLForFile.path){
-            do{
-                try fileManager.removeItem(atPath: destinationURLForFile.path)
-                try fileManager.moveItem(at: location, to: destinationURLForFile)
-            }catch{
-                print("error")
-            }
-        }
-        else{
-            do {
-                try fileManager.moveItem(at: location, to: destinationURLForFile)
-            }catch{
-                print("An error occurred while moving file to destination url")
-            }
-        }
-    }
-    
-    /*
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        downloadTask = nil
-        if (error != nil) {
-            print("didCompleteWithError \(error?.localizedDescription ?? "no value")")
-        }
-        else {
-            print("The task finished successfully")
-        }
-    }*/
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true) // herangi bir yere tiklandiginda keyboard kapanacak

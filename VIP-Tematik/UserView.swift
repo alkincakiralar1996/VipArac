@@ -11,9 +11,9 @@ import AEXML
 
 class UserFuncs{
     var globalFuncs = GlobalFuncs()
+    
     func loginControl(user : User) -> Bool{
-        
-        let xmlDoc : AEXMLDocument = globalFuncs.xmlDataConnect()
+        let xmlDoc : AEXMLDocument = globalFuncs.xmlDataConnect(licenceNo: user.licenceNo!)
         
         let root = xmlDoc.root["properties"]["devices"]["device"]
         
@@ -27,5 +27,11 @@ class UserFuncs{
         }
         
         return false
+    }
+    
+    func systemSetup(licenceNo : String) -> Bool{
+        let url = URL(string: "http://www.tematik.net/VIP/\(licenceNo).gui.zip")
+        Downloader().download(url: url!)
+        return true
     }
 }

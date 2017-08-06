@@ -17,7 +17,7 @@ extension UIColor{
 
 extension UIViewController{
     
-    func alertControl(texts : [String],errorMessages : [String]) -> Bool{
+    func valueControl(texts : [String],errorMessages : [String]) -> Bool{
         var count = 0
         for items in texts{
             if items.isEmpty{
@@ -34,5 +34,9 @@ extension UIViewController{
         let alertButton = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertButton)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func passPage(page : UIViewController){
+        present(page, animated: true, completion: nil)
     }
 }

@@ -8,5 +8,7 @@ target 'VIP-Tematik' do
   # Pods for VIP-Tematik
  pod 'AEXML'
 pod 'EFInternetIndicator'
+pod 'Zip', '~> 0.7'
+pod 'SwiftSocket'
 
 end

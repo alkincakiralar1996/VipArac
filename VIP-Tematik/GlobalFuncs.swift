@@ -14,16 +14,18 @@ class GlobalFuncs{
         case FoundNil(String)
     }
     
-    func xmlDataConnect() -> AEXMLDocument{
-        let xmlPath = Bundle.main.path(forResource: "VIP", ofType: "xml")
-        
+    var xml : AEXMLDocument!
+    func xmlDataConnect(licenceNo : String) -> AEXMLDocument{
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let xmlPath = "\(documentsUrl!.path)/\(licenceNo).gui/VIP.gui"
         do{
-            let data = try? Data(contentsOf: URL(fileURLWithPath: xmlPath!))
-            let xmlDoc = try? AEXMLDocument(xml: data!)
-            return xmlDoc!
-        }catch{
+            let data = try Data(contentsOf: URL(fileURLWithPath: xmlPath))
+            xml = try AEXMLDocument(xml: data)
+        }
+        catch{
             print("DOSYAYLA BAGLANTI KURULAMADI")
         }
+        return xml
     }
 
 }
